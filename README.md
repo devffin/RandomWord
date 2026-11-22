@@ -74,4 +74,4 @@ all closing methods.
 This project was made possible by these word-list projects:
 
 - [devffin/LeMotDuJour](https://github.com/devffin/LeMotDuJour)
-- [dwyl/english-words](https://github.com/dwyl/english-words)
+- [Taknok/French-Wordlist](https://github.com/Taknok/French-Wordlist)
