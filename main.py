@@ -21,7 +21,7 @@ def load_words(path):
     with Path(path).open("r", encoding="utf-8-sig") as file:
         words = [word for line in file if (word := line.strip())]
     if not words:
-        raise ValueError("The word list contains no non-empty entries.")
+        raise ValueError("La liste de mots ne contient aucune entrée non vide.")
     return words
 
 
@@ -35,17 +35,17 @@ def main():
         words = load_words(path)
     except (OSError, UnicodeError, ValueError) as error:
         if isinstance(error, UnicodeError):
-            reason = "Save words.txt as UTF-8 and try again."
+            reason = "Enregistrez le fichier « words.txt » au format UTF-8, puis réessayez."
         elif isinstance(error, ValueError):
-            reason = "Add at least one non-empty entry to words.txt."
+            reason = "Ajoutez au moins une entrée non vide au fichier « words.txt »."
         elif isinstance(error, FileNotFoundError):
-            reason = "Keep words.txt beside main.py or RandomWord.exe."
+            reason = "Enregistrez le fichier « words.txt » à côté de « main.py » ou de « RandomWord.exe »."
         else:
-            reason = "Check that the file is readable and is not a folder."
+            reason = "Vérifiez que le fichier est accessible en lecture et qu'il ne s'agit pas d'un dossier."
         try:
             messagebox.showerror(
-                "RandomWord - Unable to load words",
-                f"The word list could not be loaded.\n\n{reason}\n\nFile: {path}",
+                "RandomWord - Impossible de charger les mots",
+                f"La liste de mots n'a pas pu être chargée.\n\n{reason}\n\nFichier : {path}",
                 parent=window,
             )
         finally:
@@ -67,7 +67,7 @@ def main():
     content.columnconfigure(0, weight=1)
     content.rowconfigure(1, weight=1)
 
-    ttk.Label(content, text="Random word:").grid(row=0, column=0, pady=(0, 8))
+    ttk.Label(content, text="Mot au hasard :").grid(row=0, column=0, pady=(0, 8))
     word_label = ttk.Label(
         content,
         text=word,
